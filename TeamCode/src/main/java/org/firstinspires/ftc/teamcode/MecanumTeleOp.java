@@ -2,8 +2,6 @@ package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
-import com.qualcomm.robotcore.hardware.DcMotor;
-import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import org.firstinspires.ftc.utilities.IMU;
 import org.firstinspires.ftc.utilities.Utils;
 
@@ -25,7 +23,7 @@ public class MecanumTeleOp extends OpMode {
 
         Utils.setHardwareMap(hardwareMap);
         imu = new IMU("imu");
-        initAngle = imu.getHeading();
+        initAngle = imu.getAngle();
     }
 
     /*
@@ -60,7 +58,7 @@ public class MecanumTeleOp extends OpMode {
         telemetry.addData("Strafe", strafe);
         telemetry.addData("Drive", drive);
         telemetry.addData("Turn", turn);
-        telemetry.addData("IMU", imu.getHeading());
+        telemetry.addData("IMU", imu.getAngle());
         telemetry.update();
     }
 }

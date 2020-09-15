@@ -1,6 +1,5 @@
 package org.firstinspires.ftc.utilities;
 
-import net.waring.java4ftc.utilities.Utils;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
@@ -28,7 +27,7 @@ public class IMU {
     /**
      * @return the wrapped angle
      */
-    public double getHeading(){
+    public double getAngle(){
 
         // Get the current angle
         Orientation angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
