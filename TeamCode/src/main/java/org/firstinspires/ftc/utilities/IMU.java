@@ -33,12 +33,12 @@ public class IMU {
         Orientation angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
         double currentAngle = angles.firstAngle;
 
+        // Update how many times we have wrapped
+        deltaAngle = updateWraps(previousAngle, currentAngle, deltaAngle);
 
-        deltaAngle = updateWraps(previousAngle, currentAngle, deltaAngle);            // Update how many times we have wrapped
-
-        previousAngle = currentAngle;                                       // Update the previous angle
-        double currentWrappedAngle = currentAngle + deltaAngle;          // Calculate wrapped angle. For every full rotation, we will need to add or subtract 360 to correctly wrap
-        return currentWrappedAngle;
+        // Update the previous angle
+        previousAngle = currentAngle;
+        return currentAngle + deltaAngle;
     }
 
     /**
